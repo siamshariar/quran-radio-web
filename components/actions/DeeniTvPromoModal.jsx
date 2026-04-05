@@ -1,8 +1,11 @@
 import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import styles from "./DeeniTvPromoModal.module.css";
 
 const DeeniTvPromoModal = ({ onClose }) => {
+	const deeniTvUrl = "#";
+
 	return (
 		<div className={styles.root} role="dialog" aria-modal="true" aria-label="Deeni TV promo">
 			<div className={styles.backdrop} />
@@ -13,7 +16,7 @@ const DeeniTvPromoModal = ({ onClose }) => {
 				<div className={styles.popupLogo}>
 					<Image
 						src="/img/logo/deeni-tv.png"
-						alt="Quran.radio"
+						alt="Deeni TV"
 						width={150}
 						height={80}
 						style={{ objectFit: "contain", objectPosition: "center" }}
@@ -25,6 +28,17 @@ const DeeniTvPromoModal = ({ onClose }) => {
 				<p className={styles.text}>
 					Watch the latest Islamic videos, updates, and launches on Deeni TV.
 				</p>
+				<div className={styles.openButtonWrap}>
+					<a
+						href={deeniTvUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={onClose}
+						className={styles.openButton}>
+						Open Deeni TV
+						<PlayCircleOutlineIcon />
+					</a>
+				</div>
 			</div>
 		</div>
 	);
