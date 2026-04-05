@@ -24,9 +24,9 @@ const DeeniTvPromoModal = ({ onClose }) => {
 						unoptimized
 					/>
 				</div>
-				<p className={styles.title}>Deeni TV is now live</p>
+				<p className={styles.title}>Deeni.tv is now on the Web</p>
 				<p className={styles.text}>
-					Watch the latest Islamic videos, updates, and launches on Deeni TV.
+					Explore inspiring Islamic programs, lectures & more with just a click.
 				</p>
 				<div className={styles.openButtonWrap}>
 					<a
