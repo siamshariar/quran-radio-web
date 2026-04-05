@@ -141,20 +141,20 @@ const Player = () => {
 
 		const delayInSeconds = Math.floor(Math.random() * 21) + 40;
 		promoTimerRef.current = window.setTimeout(() => {
-			localStorage.setItem(DEENI_TV_PROMO_STORAGE_KEY, "shown");
+			localStorage.setItem(DEENI_TV_PROMO_STORAGE_KEY, JSON.stringify(true));
 			setPromoOpen(true);
 		}, delayInSeconds * 1000);
 	};
 
 	useEffect(() => {
-		const firstDialog = localStorage.getItem(FIRST_DIALOG_STORAGE_KEY);
-		const promoShown = localStorage.getItem(DEENI_TV_PROMO_STORAGE_KEY);
+		const firstDialog = JSON.parse(localStorage.getItem(FIRST_DIALOG_STORAGE_KEY) || 'false');
+		const promoShown = JSON.parse(localStorage.getItem(DEENI_TV_PROMO_STORAGE_KEY) || 'false');
 
-		if (firstDialog === null) {
+		if (!firstDialog) {
 			setDialogOpen(true);
 		}
 
-		if (firstDialog !== null && promoShown !== "shown") {
+		if (firstDialog && !promoShown) {
 			schedulePromoPopup();
 		}
 
@@ -169,7 +169,7 @@ const Player = () => {
 	const handleDialog = () => {
 		setDialogOpen(false);
 		setPlaying(true);
-		localStorage.setItem(FIRST_DIALOG_STORAGE_KEY, "opened");
+		localStorage.setItem(FIRST_DIALOG_STORAGE_KEY, JSON.stringify(true));
 		schedulePromoPopup();
 	};
 
