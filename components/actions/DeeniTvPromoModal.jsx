@@ -44,4 +44,4 @@ const DeeniTvPromoModal = ({ onClose }) => {
 	);
 };
 
-export default DeeniTvPromoModal;
+export default DeeniTvPromoModal; 
